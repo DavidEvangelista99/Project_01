@@ -76,3 +76,133 @@ print("\n") #salto de linea#
 
 for j in range(1,31,2): #Paso x (1,31,x)#
     print(j,end=" ")
+
+
+#-Listas-#
+###Agrupamientos de distintos datos
+
+l1=[]
+l2=list()
+print(type(l1))
+print(type(l2))
+
+l3=[18,19,"Tesla",[1,2,3],"Electronica",777]
+print(l3)
+
+print(l3[0])
+print(l3[2])
+print(l3[3])
+
+#Inversa# 
+##Cada elemento tiene dos posibles indices
+print(l3[-1])
+print(l3[-3])
+
+#Longitud de la lista#
+
+print(len(l3))
+
+#Cambio de valores#
+l3[2]="David"
+
+print(l3)
+
+#-Operadores con listas-#
+#APEND
+
+l1=[4,5,6]
+l2=[2,3]
+
+l4=l1+l2 #Union de listas#
+print(l4)
+
+l5=3*l1 #Repetecion de listas#
+print(l5)
+
+#-Agregar elementos a la lista-#
+l6=["circuitos",[2,3,4],16,"electronicos"]
+l6.append("2")
+print(l6)
+
+l6.append([1,4,7])
+print(l6)
+
+#INSERT
+l7=[18,19,"Tesla",[1,2,3],"Electronica",777]
+print(l7)
+l7.insert(3,"transistor")
+print(l7)
+
+#EXTEND
+l8=["oscilador",[1,2,3],"MOSFET",4004]
+l8.extend([12,"5G"])
+print(l8)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#-Quitar elementos-#
+##del
+l1=["tecnologia","energia",5,8,["David","Evangelista"]]
+print(l1)
+
+del l1[1]
+print(l1)
+del l1[3]
+print(l1)
+
+##remove
+#Remueve un elemento de la lista escrbiendo el elemento
+l1.remove(5)
+print(l1)
+
+##pop
+l2=["Fernando",3,5,["Don Gilberto","Doña Nelly"]]
+print(l2)
+
+l2.pop()
+print(l2)
+l2.pop()
+print(l2)
+
+l2.pop(0)
+print(l2)
+valor=l2.pop(0)
+print(valor)
+
+l3=["Fernando",3,5,["Don Gilberto","Doña Nelly"]]
+l4=[]
+
+l4=apend(l3.pop(3))
+print(l4)
+
+#-Referencia y copia de listas-#
+l9=[23,56,"Newton",67]
+print(l9)
+l10=l9
+print(l10)
+l10.append(121212)
+print(l10)
+print(l9)
+
+l9.remove("Newton")
+print(l9)
+print(l10)
+
+#-Copias-#
+l9=[2,3,"Cuti","David"]
+print(l9)
+l11=l9[:]
+print(l11)
+print(l9)
+
+Lx=[4,5,6,9,12,6]
+print(Lx)
+
+for elem in Lx:
+    print(elem,end=" ")
+    
+print("\n")
+
+for indice in range(len(Lx)):
+    print(Lx[indice],end=" ")
+
