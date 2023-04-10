@@ -172,7 +172,7 @@ print(valor)
 l3=["Fernando",3,5,["Don Gilberto","Doña Nelly"]]
 l4=[]
 
-l4=apend(l3.pop(3))
+l4.apend(l3.pop(3))
 print(l4)
 
 #-Referencia y copia de listas-#
