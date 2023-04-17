@@ -1,3 +1,26 @@
+#-Funciones-#
+##-Verificar si un numero es primo o no-##
+
+def verificarSiPrimoNO(num):
+    ac=0
+    for div in range(1,num+1):
+        if(num%div==0):
+            ac+=1
+    if(ac==2):
+        return 1
+    else:
+        return 0
+
+numero=int(input("Ingrese un numero: "))
+
+val=verificarSiPrimoNO(numero)
+
+if(val==1):
+    print("El numero es primo!!")
+else:
+    print("El numero no es primo")
+    
+
 #-Ejercicio -04-#
 import math as mt
 alfa=[[18,15,10,6,11],[17,9,9,18,12],[15,11,14,17,13],[16,12,13,16,9]]
