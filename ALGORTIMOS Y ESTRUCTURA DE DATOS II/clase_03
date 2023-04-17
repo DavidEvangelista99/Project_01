@@ -30,3 +30,62 @@ for i in range(len(alfa[0])):
     dx=desviacion(vx)
     print("Desviacion: ",dx,"\n")
 
+
+
+#-Ejercicio 05-#
+import math as mt
+
+m=[[18,13,17,18,16],[11,16,14,19,17],[8,11,6,20,18],[9,12,5,2,19]]
+print(m)
+
+
+def mediaCursos(lista):
+    m=sum(lista)/len(lista)
+    return m
+def varianzaCursos(lista,m):
+    s=0
+    for i in range(len(lista)):
+        s=s+mt.pow((lista[i]-m),2)
+    var=s/len(L)
+    return var
+def desviacionCursos(z):
+    desv=mt.sqrt(z)
+    return desv
+
+def mediaAlumnos(L):
+    m=sum(L)/len(L)
+    return m
+def varianzaAlumnos(L,m):
+    s=0
+    for i in range(len(L)):
+        s=s+mt.pow((L[i]-m),2)
+    var=s/len(L)
+    return var
+def desviacionAlumnos(z):
+    desv=mt.sqrt(z)
+    return desv
+
+#-filas (Cursos)-#
+print("\nCURSOS")
+for i in range(len(m[0])-1):
+    media=mediaCursos(m[i])
+    varianza=varianzaCursos(m[i],media)
+    desviacion=desviacionCursos(varianza)
+    print("Media de Curso ",i+1,": ",media)
+    print("Varianza de Curso",i+1,": ",varianza)
+    print("Desviacion del Curso",i+1,": ",desviacion)
+    m[i].sort(reverse=True)
+    print("La mayor nota del Curso ",i+1," es:",m[i][0])
+
+#-columnas (Alumnos)-#
+print("\nALUMNOS")
+for j in range(len(m[0])):
+    alumnos=[co[j] for co in m]
+    mx=mediaAlumnos(alumnos)
+    print("Media de Alumno ",j+1,": ",mx)
+    vx=varianzaAlumnos(alumnos,mx)
+    print("Varianza de Alumno ",j+1,": ",vx)
+    dx=desviacionAlumnos(vx)
+    print("Desviacion de Alumno ",j+1,": ",dx)
+    
+
