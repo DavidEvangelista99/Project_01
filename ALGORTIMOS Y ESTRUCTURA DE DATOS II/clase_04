@@ -62,4 +62,54 @@ mysql> select * from notas;
 +---------+---------+------+---------+
 2 rows in set (0.00 sec)
 
+##---Spyder---##
+import pymysql
+from flask import Flask
+from flask import Flask, render_template, request, redirect, flash
+
+print("Hola Mundo")
+
+
+##--Conexion de Python a la MySQL--##
+import pymysql
+from flask import Flask
+from flask import Flask, render_template, request, redirect, flash
+
+def obtener_conexion():
+    return pymysql.connect(host='localhost',
+                           user='root',
+                           password='user', ##nueva, conexion con la base de datos
+                           db='aumnos')
+
+
+print("Hola Mundo")
+
+##--Datos en tuplas--##
+
+import pymysql
+from flask import Flask
+from flask import Flask, render_template, request, redirect, flash
+
+def obtener_conexion():
+    return pymysql.connect(host='localhost',
+                           user='root',
+                           password='Daferevan#98', ##nueva, conexion con la base de datos
+                           db='alumnos')
+    
+obtener_conexion()
+
+def obtener_alumnos():
+    conexion=obtener_conexion()
+    alumnos=[]
+    with conexion.cursor() as cursor:
+        cursor.execute('SELECT idnotas, nota, materia FROM notas')
+        alumno=cursor.fetchall()
+        print(alumnos)
+    conexion.close()
+    return alumno
+
+x=obtener_alumnos()
+print(x)
+
+
 
