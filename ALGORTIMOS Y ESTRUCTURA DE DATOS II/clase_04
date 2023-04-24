@@ -3,3 +3,63 @@
 ##contraseña: =
 ##Schemas: Base de datos
 ##C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+
+##---CMD---##
+
+mysql> show database
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| alumnos            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+
+
+##---MySQL---##
+
+CREATE TABLE `alumnos`.`notas` (
+  `idnotas` INT NOT NULL AUTO_INCREMENT,
+  `nombres` VARCHAR(45) NOT NULL,
+  `nota` INT NOT NULL,
+  `materia` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idnotas`));
+  
+  
+SELECT * FROM alumnos.notas;
+  
+  
+INSERT INTO `alumnos`.`notas` (`idnotas`, `nombres`, `nota`, `materia`) VALUES ('1', 'Tica', '15', 'BMA20');
+INSERT INTO `alumnos`.`notas` (`idnotas`, `nombres`, `nota`, `materia`) VALUES ('2', 'Juan', '17', 'EE421');
+
+
+##---CMD---##
+
+mysql> use alumnos
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_alumnos |
++-------------------+
+| notas             |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from notas;
++---------+---------+------+---------+
+| idnotas | nombres | nota | materia |
++---------+---------+------+---------+
+|       1 | Tica    |   15 | BMA20   |
+|       2 | Juan    |   17 | EE421   |
++---------+---------+------+---------+
+2 rows in set (0.00 sec)
+
+
