@@ -111,5 +111,47 @@ def obtener_alumnos():
 x=obtener_alumnos()
 print(x)
 
+##-Conexion a la Web-##
 
+import pymysql
+from flask import Flask
+from flask import Flask, render_template, request, redirect, flash
+
+def obtener_conexion():
+    return pymysql.connect(host='localhost',
+                           user='root',
+                           password='Daferevan#98', ##nueva, conexion con la base de datos
+                           db='alumnos')
+    
+obtener_conexion()
+
+##-Conexion a la web-##
+app=Flask(__name__)
+
+##Siempre al lado de una funcion, dandole funcionalidad
+@app.route('/') ##raiz
+def hello_world():
+    return "Hello World!! Vamos!!"
+
+
+def obtener_alumnos():
+    conexion=obtener_conexion()
+    alumnos=[]
+    with conexion.cursor() as cursor:
+        cursor.execute('SELECT idnotas, nota, materia FROM notas')
+        alumno=cursor.fetchall()
+        print(alumnos)
+    conexion.close()
+    return alumno
+
+x=obtener_alumnos()
+print(x)
+
+
+if __name__=="__main__":
+    app.run(host='0.0.0.0', port=8000, debug=True)
+
+
+
+print("Hola Mundo")
 
