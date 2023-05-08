@@ -1,0 +1,70 @@
+import pymysql
+from flask import Flask
+from flask import Flask, render_template, request, redirect, flash
+
+import controlador_alumnos
+
+def obtener_conexion():
+    return pymysql.connect(host='localhost',
+                                user='root',
+                                password='Daferevan#98',
+                                db='universidad')
+    
+app = Flask(__name__)
+
+#@app.route('/')
+#def hello_world():
+#   return 'Hello, World! Vamos !!!'
+
+@app.route("/agregar_alumno")
+def formulario_agregar_alumno():
+    return render_template("agregar_alumno.html")
+    #return "Hola Render !!"
+    
+@app.route("/guardar_alumno", methods=["POST"])
+def guardar_alumno():
+    idAlumno = request.form["idAlumno"]
+    nombre = request.form["nombre"]
+    edad = request.form["edad"]
+    controlador_alumnos.insertar_alumno(idAlumno, nombre, edad)
+    # De cualquier modo, y si todo fue bien, redireccionar
+    
+    return redirect("/alumnos")
+
+@app.route("/")
+@app.route("/alumnos")
+def alumnos():
+    x = controlador_alumnos.obtener_alumnos()
+    return render_template("alumnos.html",alumnos=x)
+
+
+@app.route("/formulario_editar_alumno/<int:id>")
+def editar_alumno(id):
+    # Obtener el juego por ID
+    x = controlador_alumnos.obtener_alumno_por_id(id)
+    return render_template("editar_alumno.html", alumno=x)
+    #return render_template("editar_alumno.html")
+    #return 'Hello, World! Vamos !!!'
+
+
+@app.route("/actualizar_alumno", methods=["POST"])
+def actualizar_alumno():
+    id = request.form["idAlumno"]
+    #idAlumno = request.form["idAlumno"]
+    nombre = request.form["nombre"]
+    edad = request.form["edad"]
+    #precio = request.form["precio"]
+    controlador_alumnos.actualizar_alumno(nombre, edad,id)
+    return redirect("/alumnos")
+#@app.route("/for")
+
+
+
+@app.route("/eliminar_alumno", methods=["POST"])
+def eliminar_alumno():
+    controlador_alumnos.eliminar_alumno(request.form["idAlumno"])
+    return redirect("/alumnos")
+
+
+if __name__=="__main__":
+    app.run(host='0.0.0.0', port=8000, debug=True)
