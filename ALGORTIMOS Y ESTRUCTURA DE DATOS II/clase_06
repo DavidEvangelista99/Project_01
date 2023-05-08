@@ -1,0 +1,52 @@
+CREATE SCHEMA `universidad` ;
+
+CREATE TABLE `universidad`.`alumno` (
+  `idalumno` INT NOT NULL AUTO_INCREMENT,
+  `nombre_alumno` VARCHAR(45) NOT NULL,
+  `apellido_alumno` VARCHAR(45) NOT NULL,
+  `edad` INT NOT NULL,
+  PRIMARY KEY (`idalumno`));
+
+
+CREATE TABLE `universidad`.`materia` (
+  `idmateria` INT NOT NULL AUTO_INCREMENT,
+  `nombre_Materia` VARCHAR(45) NOT NULL,
+  `creditos` INT NOT NULL,
+  PRIMARY KEY (`idmateria`));
+
+
+##Relacionarlo
+
+ALTER TABLE `universidad`.`materia` 
+ADD INDEX `fk_id_materia_idx` (`idmateria` ASC) VISIBLE;
+;
+ALTER TABLE `universidad`.`materia` 
+ADD CONSTRAINT `fk_id_materia`
+  FOREIGN KEY (`idmateria`)
+  REFERENCES `universidad`.`alumno` (`idalumno`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+##
+
+ALTER TABLE `universidad`.`alumno` 
+ADD INDEX `fk_id_materia_idx` (`idmateria` ASC) VISIBLE;
+;
+ALTER TABLE `universidad`.`alumno` 
+ADD CONSTRAINT `fk_id_materia`
+  FOREIGN KEY (`idmateria`)
+  REFERENCES `universidad`.`materia` (`nombre_Materia`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+INSERT INTO `universidad`.`alumno` (`idalumno`, `nombre_alumno`, `apellido_alumno`, `edad`, `idmateria`) VALUES ('11', 'David', 'Fernandez', '23', 'Electronicos');
+INSERT INTO `universidad`.`alumno` (`idalumno`, `nombre_alumno`, `apellido_alumno`, `edad`, `idmateria`) VALUES ('12', 'Elisa', 'Montes', '24', 'Sistemas');
+INSERT INTO `universidad`.`alumno` (`idalumno`, `nombre_alumno`, `apellido_alumno`, `edad`, `idmateria`) VALUES ('13', 'Hugo', 'Briceño', '20', 'Control');
+
+
+INSERT INTO `universidad`.`materia` (`idmateria`, `nombre_materia`, `creditos`) VALUES ('1', 'Electronicos', '4');
+INSERT INTO `universidad`.`materia` (`idmateria`, `nombre_materia`, `creditos`) VALUES ('2', 'Sistemas', '6');
+INSERT INTO `universidad`.`materia` (`idmateria`, `nombre_materia`, `creditos`) VALUES ('3', 'Control', '3');
