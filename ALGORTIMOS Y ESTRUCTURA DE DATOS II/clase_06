@@ -157,3 +157,86 @@ print(cadena7)
 
 cadena8=cadena3.strip("*")
 print(cadena8)
+
+
+cadena2="FIEE UNI"
+
+#llenado de cadenas por simbolo (numero 50 incluido FIEE UNI)#
+cadena3=cadena2.center(50,"*")
+print(cadena3)
+
+#Lleando para compltar con simbolos#
+cadena4=cadena2.rjust(60,"#")
+print(cadena4)
+
+cadena5=cadena2.ljust(60,"#")
+print(cadena5)
+
+#Limpieza de cadenas
+print(cadena5)
+cadena6=cadena5.rstrip("#")
+print(cadena6)
+
+print(cadena4)
+cadena7=cadena4.lstrip("#")
+print(cadena7)
+
+cadena8=cadena3.strip("*")
+print(cadena8)
+
+
+#Reemplzaso de cadenas por otra#
+cadena9="Tres tristes tigres comen trigo en un  trigal"
+print(cadena9)
+cadena10=cadena9.replace("Tri","RRR",2)
+print(cadena10)
+
+#-Busqueda de palabras-#
+cadena11="Tres tristes tigres comen trigo en un  trigal"
+print(cadena11)
+index=cadena11.index("tri")
+print(index)
+
+#-Cortar cadena y las convierte en listas, en vase a separaciones por un simbolo-#
+cadena12="Parciales-la-proxima-semana"
+print(cadena12)
+lx=cadena12.split("-")
+print(lx)
+
+#--Funcion SPLIT--#
+cadena13="el correo hackeado es ericson@tw.com y lo tenemos"
+Res=cadena13.split(" ")
+print(Res)
+
+for pal in Res:
+    print(pal)
+    
+ #--Pasar a codigo ASCII--#
+cadena14="El dia nublado despues de verano"
+print(cadena14,"\n")
+for ch in cadena14:
+    print(ch,end=" ")
+print("\n")
+
+Lz=[]
+
+#Conversion de letras a numeros#
+for ch in cadena14:
+    print(ord(ch),end=" ")
+    Lz.append(ord(ch))
+    
+#Conversion de numeros a letras#
+print("\n")
+for ch in Lz:
+    print(chr(ch),end=" ")
+
+num=356
+
+#--Conteo de palabras o cadenas--#
+xy=str(num).zfill(7)
+print(xy)
+cadena15="Tres tristes tigres comen trigo en un  trigal"
+val=cadena15.count("tri")
+print(val)
+
+
