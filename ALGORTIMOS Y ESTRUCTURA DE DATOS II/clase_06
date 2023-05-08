@@ -1,3 +1,5 @@
+##MySQL##
+
 CREATE SCHEMA `universidad` ;
 
 CREATE TABLE `universidad`.`alumno` (
@@ -50,3 +52,108 @@ INSERT INTO `universidad`.`alumno` (`idalumno`, `nombre_alumno`, `apellido_alumn
 INSERT INTO `universidad`.`materia` (`idmateria`, `nombre_materia`, `creditos`) VALUES ('1', 'Electronicos', '4');
 INSERT INTO `universidad`.`materia` (`idmateria`, `nombre_materia`, `creditos`) VALUES ('2', 'Sistemas', '6');
 INSERT INTO `universidad`.`materia` (`idmateria`, `nombre_materia`, `creditos`) VALUES ('3', 'Control', '3');
+
+
+#--Python - Clase--#
+
+#--Cadenas--#
+
+listaX=[3,6,1,8,6,9]
+cadena="Examen Parcial"
+
+#-Cambio de valores-#
+print(cadena[2])
+
+print(listaX)
+listaX[3]=99
+print(listaX)
+
+"""#Son inmutables#
+cadena[4]='b'
+print(cadena)"""
+
+#-Ejercicio-#
+#Cambiar las vocales por _#
+frase="subir arriba"
+print(frase)
+
+aux=""
+
+for i in range(len(frase)):
+    if frase[i]=='a':
+       aux = aux + '_'
+    else:
+        aux=aux+frase[i]
+        
+print(frase)
+
+frase2="La universidad Nacional de Ingenieria es la UNI"
+print(frase2)
+
+#Imprime cada uno#
+frase3=frase2[:]
+print(frase3)
+
+#A partir de 4 hasta el 20 termino de 2 en 2#
+frase4=frase2[4:40:2]
+print(frase4)
+
+#Todo a mayusculas#
+frase5=frase2.upper()
+print(frase5)
+
+#Todo a minuscula#
+frase6=frase5.lower()
+print(frase6)
+
+#Primeras letras decada palabra a mayusculas#
+frase7=frase6.title()
+print(frase7)
+
+#.capitalize#
+frase8=frase7.title()
+print(frase8)
+
+#.swapcase#
+
+#Alineacion de cadenas#
+a=7
+b=5
+c=3
+separador="|"
+
+#--Separadores--#
+#{0:<5} - separador 5 espacios a la izquierda#
+#{0:^5} - separador 5 espacios centrado#
+#{0:>5} - separador 5 espacios a la derecha#
+
+print("{0:<5} {3} {1:^5} {3} {2:>5}".format(a,b,c,separador))
+
+for i in range(5):
+    print("{0:<5} {3} {1:^5} {3} {2:>5}".format(a,b,c,separador))
+    
+
+cadena2="FIEE UNI"
+
+#llenado de cadenas por simbolo (numero 50 incluido FIEE UNI)#
+cadena3=cadena2.center(50,"*")
+print(cadena3)
+
+#Lleando para compltar con simbolos#
+cadena4=cadena2.rjust(60,"#")
+print(cadena4)
+
+cadena5=cadena2.ljust(60,"#")
+print(cadena5)
+
+#Limpieza de cadenas
+print(cadena5)
+cadena6=cadena5.rstrip("#")
+print(cadena6)
+
+print(cadena4)
+cadena7=cadena4.lstrip("#")
+print(cadena7)
+
+cadena8=cadena3.strip("*")
+print(cadena8)
